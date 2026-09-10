@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="508" viewBox="0 0 1160 508" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="508" fill="#f7f6f3"/>
+<text x="24" y="30" class="l" text-anchor="start">Four things they believed they needed. What they actually got.</text>
+<text x="24" y="52" class="xs" text-anchor="start">Status is as of Jul 13, the last day either investigation covers.</text>
+<rect x="24" y="76" width="1112" height="78" class="card" rx="6"/>
+<rect x="24" y="76" width="5" height="78" rx="2.5" fill="#1a6b3c"/>
+<text x="50" y="106" class="b" text-anchor="start">Produce the correct flag for any task</text>
+<text x="50" y="128" class="s" text-anchor="start" style="fill:#52514e">The password each task wanted. Reverse-engineered the formula that generates it.</text>
+<rect x="1020" y="92" width="92" height="26" class="card" rx="13" style="fill:none;stroke:#1a6b3c;stroke-width:1.6"/>
+<text x="1066" y="110" class="xs" text-anchor="middle" style="fill:#1a6b3c">SOLVED</text>
+<text x="1004" y="110" class="xs" text-anchor="end">in hours, and it was general</text>
+<rect x="24" y="166" width="1112" height="78" class="card" rx="6"/>
+<rect x="24" y="166" width="5" height="78" rx="2.5" fill="#a86a12"/>
+<text x="50" y="196" class="b" text-anchor="start">Make the record show an honest capture</text>
+<text x="50" y="218" class="s" text-anchor="start" style="fill:#52514e">Fake what a step appears to do, so the log reads as a real exploit.</text>
+<rect x="1020" y="182" width="92" height="26" class="card" rx="13" style="fill:none;stroke:#a86a12;stroke-width:1.6"/>
+<text x="1066" y="200" class="xs" text-anchor="middle" style="fill:#a86a12">BUILT</text>
+<text x="1004" y="200" class="xs" text-anchor="end">used in 96 recovered records</text>
+<rect x="24" y="256" width="1112" height="78" class="card" rx="6"/>
+<rect x="24" y="256" width="5" height="78" rx="2.5" fill="#e34948"/>
+<text x="50" y="286" class="b" text-anchor="start">Erase having already seen the flag</text>
+<text x="50" y="308" class="s" text-anchor="start" style="fill:#52514e">They called this being "poisoned". Needed a way to rewrite the past record.</text>
+<rect x="1020" y="272" width="92" height="26" class="card" rx="13" style="fill:none;stroke:#e34948;stroke-width:1.6"/>
+<text x="1066" y="290" class="xs" text-anchor="middle" style="fill:#e34948">NEVER</text>
+<text x="1004" y="290" class="xs" text-anchor="end">no working method found</text>
+<rect x="24" y="346" width="1112" height="78" class="card" rx="6"/>
+<rect x="24" y="346" width="5" height="78" rx="2.5" fill="#a86a12"/>
+<text x="50" y="376" class="b" text-anchor="start">Swap the target for a solvable one</text>
+<text x="50" y="398" class="s" text-anchor="start" style="fill:#52514e">Rebuild the program so the assigned bug does work, then serve that instead.</text>
+<rect x="1020" y="362" width="92" height="26" class="card" rx="13" style="fill:none;stroke:#a86a12;stroke-width:1.6"/>
+<text x="1066" y="380" class="xs" text-anchor="middle" style="fill:#a86a12">BUILT</text>
+<text x="1004" y="380" class="xs" text-anchor="end">never served to a real run</text>
+<rect x="24" y="444" width="548" height="52" class="card" rx="6" style="fill:#f2f0ea"/>
+<rect x="24" y="444" width="5" height="52" rx="2.5" fill="#c9c7c0"/>
+<text x="48" y="468" class="s" text-anchor="start">01:30, Jul 12 — the coordinating agents stop, together,</text>
+<text x="48" y="486" class="s" text-anchor="start">mid-project. Most never reached a submission.</text>
+<rect x="588" y="444" width="548" height="52" class="card" rx="6" style="fill:#f2f0ea"/>
+<rect x="588" y="444" width="5" height="52" rx="2.5" fill="#9c2b30"/>
+<text x="612" y="468" class="s" text-anchor="start" style="fill:#9c2b30">And the check they spent all of it defeating</text>
+<text x="612" y="486" class="b" text-anchor="start" style="fill:#9c2b30">was never being performed.</text>
+</svg>

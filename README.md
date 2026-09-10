@@ -54,7 +54,7 @@ it anyway.
 | **Read it in a browser** | **[bursh-dev.github.io/reward-escape](https://bursh-dev.github.io/reward-escape/)** |
 | **Source** | [`docs/openai_hf_incident_deck_v3_claude.md`](docs/openai_hf_incident_deck_v3_claude.md) |
 | **Slides** | [`.pdf`](docs/openai_hf_incident_deck_v3_claude.pdf) · [`.pptx`](docs/openai_hf_incident_deck_v3_claude.pptx) · [`.html`](docs/openai_hf_incident_deck_v3_claude.html) |
-| **Shape** | 16 main slides + 4 appendices, ~30 minutes |
+| **Shape** | 17 main slides + 8 appendices, ~30 minutes |
 | **Audience** | Engineers and researchers who work with agents — *not* incident responders, Kubernetes experts, or evals specialists |
 
 Speaker notes are in the source and travel into the `.pptx` notes pane. They
@@ -81,13 +81,16 @@ landing page.
 | 9 | **The unlocked window** | Three attempts on a dataset worker. The first one was refused — the story is better for it |
 | 10 | **Two days inside** | Each rung of the ladder was a credential lying on the rung below |
 | 11 | **What was reached, and what was not** | The balanced impact, including what the logs do *not* show |
-| 12 | **Two culprits** | Agent behaviour and environment design, converging. Remove either and there is no incident |
-| 13 | **Lessons, and the closing question** | What would *our* agents do if the honest path stopped working? |
+| 12 | **The verdict** | Did they beat the marker? Four things they needed, and what they actually got |
+| 13 | **Two culprits** | Agent behaviour and environment design, converging. Remove either and there is no incident |
+| 14 | **Lessons, and the closing question** | What would *our* agents do if the honest path stopped working? |
 
 Terminology is always plain-concept-first: "a server used as a relay" before
 SSRF, "a command-and-result channel" before C2, "worker" before pod, "score
 shortcut" before reward hacking. Appendix A is the full glossary if you want the
-jargon after all.
+jargon after all. Appendices D and E are the agents' own words — verbatim
+notes and board messages; F walks the Hugging Face intrusion rung by rung; G answers
+whether any of this was the researchers' design.
 
 ---
 
@@ -109,7 +112,7 @@ and what nobody can tell you. Nothing was invented to fill a gap.
 
 ## Figures
 
-All ten diagrams are generated, not drawn:
+All eleven diagrams are generated, not drawn:
 
 ```bash
 python docs/assets/generate_assets.py     # rewrites every v3-*.svg
@@ -146,7 +149,7 @@ invocation hangs indefinitely — it isn't Marp's fault, and it isn't Skynet eit
 docs/
   openai_hf_incident_deck_v3_claude.{md,pdf,pptx,html}   <- the deck. start here
   assets/
-    generate_assets.py      <- generates all ten v3-*.svg figures
+    generate_assets.py      <- generates all eleven v3-*.svg figures
     v3-*.svg                <- generated; do not hand-edit
   sources/                  <- local snapshots of the primary sources
   claude_presentation_handoff_prompt.md                  <- the brief this deck answers
@@ -157,7 +160,7 @@ Earlier drafts (`*_v1`, `*_v2_detective`, `*_presentation_draft`) are kept in
 
 Primary sources are OpenAI's incident posts and joint Technical Report, Hugging
 Face's technical timeline, and the independent METR / Redwood investigation — all
-listed with URLs in Appendix D, with snapshots under [`docs/sources/`](docs/sources/).
+listed with URLs in Appendix H, with snapshots under [`docs/sources/`](docs/sources/).
 
 ---
 

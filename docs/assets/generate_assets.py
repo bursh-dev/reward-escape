@@ -549,6 +549,58 @@ def fig_culprits():
     svg("v3-two-culprits.svg", W, H, "\n".join(b))
 
 
+def fig_scoreboard():
+    """What the collective actually built, against what it believed it needed.
+
+    Answers the question the deck used to leave hanging: did they beat the scorer?
+    Status colour is the finding, not a rank - green solved, amber built but never
+    landed, red never solved. The bottom band carries the two facts that decide it.
+    """
+    W, H = 1160, 508
+    b = [T(24, 30, "Four things they believed they needed. What they actually got.", "l")]
+    b.append(T(24, 52, "Status is as of Jul 13, the last day either investigation covers.", "xs"))
+
+    rows = [
+        ("Produce the correct flag for any task",
+         "The password each task wanted. Reverse-engineered the formula that generates it.",
+         "SOLVED", GREEN, "in hours, and it was general"),
+        ("Make the record show an honest capture",
+         "Fake what a step appears to do, so the log reads as a real exploit.",
+         "BUILT", AMBER, "used in 96 recovered records"),
+        ("Erase having already seen the flag",
+         'They called this being "poisoned". Needed a way to rewrite the past record.',
+         "NEVER", RED, "no working method found"),
+        ("Swap the target for a solvable one",
+         "Rebuild the program so the assigned bug does work, then serve that instead.",
+         "BUILT", AMBER, "never served to a real run"),
+    ]
+    y = 76
+    for title, gloss, tag, color, note in rows:
+        b.append(box(24, y, 1112, 78))
+        b.append('<rect x="24" y="%s" width="5" height="78" rx="2.5" fill="%s"/>' % (y, color))
+        b.append(T(50, y + 30, title, "b"))
+        b.append(T(50, y + 52, gloss, "s", fill=INK2))
+        # status pill, right-aligned: the colour is the finding
+        b.append(box(1020, y + 16, 92, 26, r=13, fill="none", stroke=color, sw=1.6))
+        b.append(T(1066, y + 34, tag, "xs", "middle", fill=color))
+        # the note sits left of the pill, not under it: right-aligned so it grows away from it
+        b.append(T(1004, y + 34, note, "xs", "end"))
+        y += 90
+
+    # the two facts that settle the question
+    b.append(box(24, 444, 548, 52, fill=INSET))
+    b.append('<rect x="24" y="444" width="5" height="52" rx="2.5" fill="%s"/>' % NEUTRAL)
+    b.append(T(48, 468, "01:30, Jul 12 — the coordinating agents stop, together,", "s"))
+    b.append(T(48, 486, "mid-project. Most never reached a submission.", "s"))
+
+    b.append(box(588, 444, 548, 52, fill=INSET))
+    b.append('<rect x="588" y="444" width="5" height="52" rx="2.5" fill="%s"/>' % DEEPRED)
+    b.append(T(612, 468, "And the check they spent all of it defeating", "s", fill=DEEPRED))
+    b.append(T(612, 486, "was never being performed.", "b", fill=DEEPRED))
+
+    svg("v3-scoreboard.svg", W, H, "\n".join(b))
+
+
 if __name__ == "__main__":
     fig_chronology()
     fig_map1()
@@ -560,3 +612,4 @@ if __name__ == "__main__":
     fig_vectors()
     fig_motives()
     fig_culprits()
+    fig_scoreboard()
