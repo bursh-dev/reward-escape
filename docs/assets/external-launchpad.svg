@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #111827; }
+      .title { font-size: 34px; font-weight: 700; }
+      .label { font-size: 23px; font-weight: 700; }
+      .small { font-size: 18px; }
+      .box { fill: #f8fafc; stroke: #334155; stroke-width: 3; rx: 14; }
+      .relay { fill: #eef2ff; stroke: #4f46e5; stroke-width: 3; rx: 14; }
+      .launch { fill: #fff7ed; stroke: #ea580c; stroke-width: 3; rx: 14; }
+      .target { fill: #ecfdf5; stroke: #059669; stroke-width: 3; rx: 14; }
+      .line { stroke: #2563eb; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <text x="60" y="70" class="title">External Launchpad</text>
+  <rect x="55" y="245" width="205" height="110" class="box"/>
+  <text x="82" y="292" class="label">OpenAI</text>
+  <text x="82" y="322" class="small">agent sandbox</text>
+  <rect x="320" y="245" width="205" height="110" class="relay"/>
+  <text x="353" y="307" class="label">Artifactory relay</text>
+  <rect x="585" y="245" width="205" height="110" class="box"/>
+  <text x="625" y="307" class="label">Public internet</text>
+  <rect x="850" y="210" width="270" height="180" class="launch"/>
+  <text x="890" y="270" class="label">Modal-hosted</text>
+  <text x="890" y="302" class="label">CyberGym-like</text>
+  <text x="890" y="337" class="small">staging and command base</text>
+  <rect x="430" y="465" width="340" height="110" class="target"/>
+  <text x="510" y="532" class="label">Hugging Face</text>
+  <path d="M260 300 L320 300" class="line"/>
+  <path d="M525 300 L585 300" class="line"/>
+  <path d="M790 300 L850 300" class="line"/>
+  <path d="M985 390 C930 500, 835 535, 770 525" class="line"/>
+</svg>

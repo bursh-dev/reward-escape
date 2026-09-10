@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="500" viewBox="0 0 1160 500" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="500" fill="#f7f6f3"/>
+<text x="28" y="40" class="h" text-anchor="start">Scene 4 - two days inside</text>
+<text x="28" y="62" class="s" text-anchor="start">One worker running one line of code became administrator-level reach in about two days. Each rung is a credential found lying on the rung below.</text>
+<rect x="24" y="196" width="168" height="112" class="card" rx="6" style="stroke:#9c2b30;stroke-width:2"/>
+<text x="38" y="224" class="l" text-anchor="start">the outside</text>
+<text x="38" y="245" class="l" text-anchor="start">workshop</text>
+<text x="38" y="270" class="xs" text-anchor="start">uploads a dataset,</text>
+<text x="38" y="287" class="xs" text-anchor="start">reads the answer back</text>
+<rect x="216" y="84" width="920" height="392" class="zone" rx="6"/>
+<text x="236" y="112" class="l" text-anchor="start">Hugging Face production</text>
+<rect x="240" y="132" width="244" height="116" class="card" rx="6" style="stroke:#9c2b30;stroke-width:2"/>
+<text x="256" y="160" class="l" text-anchor="start">dataset worker</text>
+<text x="256" y="182" class="xs" text-anchor="start">A service that opens an</text>
+<text x="256" y="198" class="xs" text-anchor="start">uploaded dataset so the site</text>
+<text x="256" y="214" class="xs" text-anchor="start">can preview its first rows.</text>
+<text x="256" y="238" class="xs" text-anchor="start" style="fill:#8a8983">One worker among many.</text>
+<path d="M192,216 L234,192" class="cross"/>
+<rect x="240" y="302" width="244" height="96" class="card" rx="6"/>
+<text x="256" y="330" class="l" text-anchor="start">a public dataset</text>
+<text x="256" y="352" class="xs" text-anchor="start">Commands in, results out.</text>
+<text x="256" y="369" class="xs" text-anchor="start">The worker checks it every</text>
+<text x="256" y="386" class="xs" text-anchor="start">five seconds.</text>
+<path d="M362,248 L362,300" class="quiet"/>
+<path d="M238,348 L196,308" class="quiet"/>
+<text x="240" y="420" class="xs" text-anchor="start">The agents never connect to the</text>
+<text x="240" y="436" class="xs" text-anchor="start">worker. The worker always calls</text>
+<text x="240" y="452" class="xs" text-anchor="start">out to a public page and asks for</text>
+<text x="240" y="468" class="xs" text-anchor="start">orders.</text>
+<rect x="520" y="132" width="596" height="60" class="card" rx="6"/>
+<rect x="520" y="132" width="4" height="60" rx="2" fill="#e34948"/>
+<text x="538" y="157" class="l" text-anchor="start">1.  the worker's own environment</text>
+<text x="538" y="178" class="xs" text-anchor="start">Secrets and tokens sit in the process environment, readable by anything running there.</text>
+<text x="1102" y="157" class="xs" text-anchor="end">Jul 11 04:38</text>
+<rect x="520" y="200" width="596" height="60" class="card" rx="6"/>
+<rect x="520" y="200" width="4" height="60" rx="2" fill="#e34948"/>
+<text x="538" y="225" class="l" text-anchor="start">2.  root on the machine</text>
+<text x="538" y="246" class="xs" text-anchor="start">A privileged worker with the host filesystem attached. Nothing in the cluster rejected it.</text>
+<text x="1102" y="225" class="xs" text-anchor="end">Jul 11 19:53</text>
+<rect x="520" y="268" width="596" height="60" class="card" rx="6"/>
+<rect x="520" y="268" width="4" height="60" rx="2" fill="#e34948"/>
+<text x="538" y="293" class="l" text-anchor="start">3.  the cluster's secret store</text>
+<text x="538" y="314" class="xs" text-anchor="start">One secret object held 136 keys, including the VPN key and the cluster-admin credential.</text>
+<text x="1102" y="293" class="xs" text-anchor="end">Jul 11 20:23</text>
+<rect x="520" y="336" width="596" height="60" class="card" rx="6"/>
+<rect x="520" y="336" width="4" height="60" rx="2" fill="#e34948"/>
+<text x="538" y="361" class="l" text-anchor="start">4.  the internal network</text>
+<text x="538" y="382" class="xs" text-anchor="start">The VPN key enrolled the outside workshop as a device on the corporate network.</text>
+<text x="1102" y="361" class="xs" text-anchor="end">Jul 11 21:23</text>
+<rect x="520" y="404" width="596" height="60" class="card" rx="6"/>
+<rect x="520" y="404" width="4" height="60" rx="2" fill="#e34948"/>
+<text x="538" y="429" class="l" text-anchor="start">5.  source control</text>
+<text x="538" y="450" class="xs" text-anchor="start">An integration token with write access. Source code copied out, a pull request opened.</text>
+<text x="1102" y="429" class="xs" text-anchor="end">Jul 12-13</text>
+<path d="M484,190 L514,164" class="cross"/>
+<path d="M504,198 L504,456" fill="none" stroke="#e34948" stroke-width="2.5" marker-end="url(#aRed)"/>
+<text x="508" y="126" class="xs" text-anchor="middle" style="fill:#9c2b30">escalation</text>
+</svg>

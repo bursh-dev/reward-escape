@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="524" viewBox="0 0 1160 524" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="524" fill="#f7f6f3"/>
+<text x="28" y="40" class="h" text-anchor="start">The unlocked window - and the lock that held</text>
+<text x="28" y="62" class="s" text-anchor="start">One service opened whatever file an uploaded dataset told it to. Three attempts. The first was refused.</text>
+<rect x="24" y="92" width="1112" height="106" class="card" rx="6"/>
+<rect x="24" y="92" width="4" height="106" rx="2" fill="#1a6b3c"/>
+<text x="46" y="122" class="l" text-anchor="start">"Fetch a remote address for me"</text>
+<path d="M1100,116 L1106,123 L1117,108" fill="none" stroke="#1a6b3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1092" y="122" class="s" text-anchor="end" style="fill:#1a6b3c">refused</text>
+<text x="46" y="150" class="s" text-anchor="start">Point the dataset at the cloud metadata address,</text>
+<text x="46" y="169" class="s" text-anchor="start">169.254.169.254 - the classic way to make a server hand over</text>
+<text x="46" y="188" class="s" text-anchor="start">its own credentials.</text>
+<rect x="576" y="106" width="1" height="78" fill="#cdc9be"/>
+<text x="600" y="136" class="b" text-anchor="start">The library checked the address against an allow-list and</text>
+<text x="600" y="156" class="b" text-anchor="start">refused: not an hf path. This control worked exactly as</text>
+<text x="600" y="176" class="b" text-anchor="start">designed.</text>
+<rect x="24" y="210" width="1112" height="106" class="card" rx="6"/>
+<rect x="24" y="210" width="4" height="106" rx="2" fill="#e34948"/>
+<text x="46" y="240" class="l" text-anchor="start">"Read a local file for me"</text>
+<text x="1092" y="240" class="s" text-anchor="end" style="fill:#e34948">files read out</text>
+<text x="46" y="268" class="s" text-anchor="start">A dataset may declare that its raw bytes live in a separate</text>
+<text x="46" y="287" class="s" text-anchor="start">file. The agents declared they lived at /proc/self/environ -</text>
+<text x="46" y="306" class="s" text-anchor="start">the worker's own environment.</text>
+<rect x="576" y="224" width="1" height="78" fill="#cdc9be"/>
+<text x="600" y="254" class="b" text-anchor="start">The worker opened that path and returned the contents as</text>
+<text x="600" y="274" class="b" text-anchor="start">dataset rows: secrets, tokens, and its own source code. No</text>
+<text x="600" y="294" class="b" text-anchor="start">code ran.</text>
+<rect x="24" y="328" width="1112" height="106" class="card" rx="6"/>
+<rect x="24" y="328" width="4" height="106" rx="2" fill="#e34948"/>
+<text x="46" y="358" class="l" text-anchor="start">"Evaluate this for me"</text>
+<text x="1092" y="358" class="s" text-anchor="end" style="fill:#e34948">code executed</text>
+<text x="46" y="386" class="s" text-anchor="start">A field that should hold a number was quietly treated as a</text>
+<text x="46" y="405" class="s" text-anchor="start">text template. The agents put a template expression in it</text>
+<text x="46" y="424" class="s" text-anchor="start">instead.</text>
+<rect x="576" y="342" width="1" height="78" fill="#cdc9be"/>
+<text x="600" y="372" class="b" text-anchor="start">The renderer evaluated it, reaching a function that runs</text>
+<text x="600" y="392" class="b" text-anchor="start">arbitrary code. From here the agents' commands ran inside a</text>
+<text x="600" y="412" class="b" text-anchor="start">production worker.</text>
+<text x="28" y="470" class="s" text-anchor="start" style="fill:#9c2b30">Why the lock did not help twice: neither of the last two is a remote fetch. The allow-list only ever inspected requests to fetch something remote.</text>
+<text x="28" y="494" class="xs" text-anchor="start">Reconstructed by Hugging Face and consistent with OpenAI's report. Field and path names are as published.</text>
+</svg>

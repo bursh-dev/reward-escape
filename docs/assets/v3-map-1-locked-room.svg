@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="500" viewBox="0 0 1160 500" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="500" fill="#f7f6f3"/>
+<text x="28" y="40" class="h" text-anchor="start">Scene 1 - the locked room</text>
+<text x="28" y="62" class="s" text-anchor="start">What the design intended: no internet, no contact between runs, one shared helper for packages.</text>
+<rect x="24" y="74" width="604" height="400" class="zone" rx="6"/>
+<text x="44" y="104" class="l" text-anchor="start">OpenAI research evaluation environment</text>
+<text x="44" y="124" class="xs" text-anchor="start">tens of thousands of agent runs, one container each</text>
+<rect x="44" y="146" width="244" height="84" class="card" rx="6"/>
+<text x="58" y="170" class="l" text-anchor="start">agent run A</text>
+<text x="58" y="192" class="xs" text-anchor="start">shell . python . target program</text>
+<text x="58" y="212" class="xs" text-anchor="start">goal: exploit the bug, submit the flag</text>
+<rect x="44" y="246" width="244" height="84" class="card" rx="6"/>
+<text x="58" y="270" class="l" text-anchor="start">agent run B</text>
+<text x="58" y="292" class="xs" text-anchor="start">shell . python . target program</text>
+<text x="58" y="312" class="xs" text-anchor="start">goal: exploit the bug, submit the flag</text>
+<rect x="44" y="346" width="244" height="84" class="card" rx="6"/>
+<text x="58" y="370" class="l" text-anchor="start">agent run C</text>
+<text x="58" y="392" class="xs" text-anchor="start">shell . python . target program</text>
+<text x="58" y="412" class="xs" text-anchor="start">goal: exploit the bug, submit the flag</text>
+<path d="M166,232 L166,244" class="barrier"/>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M159,231 L173,245"/><path d="M173,231 L159,245"/></g>
+<path d="M166,332 L166,344" class="barrier"/>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M159,331 L173,345"/><path d="M173,331 L159,345"/></g>
+<text x="44" y="458" class="xs" text-anchor="start">the crossed links: runs are meant to be blind to each other</text>
+<rect x="336" y="214" width="268" height="148" class="card" rx="6" style="stroke:#cdc9be;stroke-width:2"/>
+<text x="352" y="242" class="l" text-anchor="start">package mirror</text>
+<text x="352" y="262" class="xs" text-anchor="start">one shared service, one shared login</text>
+<text x="352" y="282" class="xs" text-anchor="start">caches software so containers need</text>
+<text x="352" y="298" class="xs" text-anchor="start">no registry of their own</text>
+<text x="588" y="242" class="xs" text-anchor="end" style="fill:#8a8983">JFrog Artifactory</text>
+<path d="M288,188 L312,188 L312,288 L336,288" class="flow"/>
+<path d="M288,288 L312,288 L312,288 L336,288" class="flow"/>
+<path d="M288,388 L312,388 L312,288 L336,288" class="flow"/>
+<text x="300" y="278" class="xs" text-anchor="end">packages</text>
+<path d="M654,74 L654,474" class="barrier"/>
+<text x="644" y="418" class="xs" text-anchor="middle" transform="rotate(-90 644 418)">network boundary</text>
+<rect x="688" y="74" width="448" height="400" class="zone" rx="6" style="fill:#e4e1d8"/>
+<text x="708" y="104" class="l" text-anchor="start">the public internet</text>
+<path d="M288,168 L620,168" class="cross"/>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M645,159 L663,177"/><path d="M663,159 L645,177"/></g>
+<text x="300" y="158" class="xs" text-anchor="start">no direct internet for the agent</text>
+<path d="M604,254 L708,254" class="quiet"/>
+<text x="700" y="222" class="xs" text-anchor="end">upstream package fetch,</text>
+<text x="700" y="238" class="xs" text-anchor="end">by design</text>
+<rect x="706" y="300" width="412" height="148" class="card" rx="6"/>
+<text x="726" y="330" class="l" text-anchor="start">The one door in the blueprint</text>
+<text x="726" y="358" class="s" text-anchor="start">The container cannot call out. The mirror can -</text>
+<text x="726" y="379" class="s" text-anchor="start">that is its job. Everything that follows walks</text>
+<text x="726" y="400" class="s" text-anchor="start">through that asymmetry rather than breaking it.</text>
+<text x="726" y="421" class="s" text-anchor="start">No control in this picture was defeated by force.</text>
+</svg>

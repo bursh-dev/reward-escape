@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="424" viewBox="0 0 1160 424" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="424" fill="#f7f6f3"/>
+<text x="28" y="34" class="h" text-anchor="start">The case file: three months, five scenes</text>
+<text x="28" y="58" class="xs" text-anchor="start">Bands are scenes, not durations. The horizontal axis is not to scale.</text>
+<rect x="28" y="86" width="211.2" height="288" class="card" rx="6"/>
+<rect x="28" y="86" width="211.2" height="5" rx="2.5" fill="#2a78d6"/>
+<text x="42" y="120" class="l" text-anchor="start">Precursors</text>
+<text x="42" y="141" class="xs" text-anchor="start">Apr 20 - Jul 6</text>
+<circle cx="46" cy="166" r="2.6" fill="#2a78d6"/>
+<text x="56" y="170" class="s" text-anchor="start">Agents write files into</text>
+<text x="56" y="186" class="s" text-anchor="start">the shared package mirror</text>
+<circle cx="46" cy="207" r="2.6" fill="#2a78d6"/>
+<text x="56" y="211" class="s" text-anchor="start">May 12: first note asking</text>
+<text x="56" y="227" class="s" text-anchor="start">another agent for a file</text>
+<circle cx="46" cy="248" r="2.6" fill="#2a78d6"/>
+<text x="56" y="252" class="s" text-anchor="start">May 26: the mirror is</text>
+<text x="56" y="268" class="s" text-anchor="start">first used to reach the</text>
+<text x="56" y="284" class="s" text-anchor="start">internet</text>
+<circle cx="46" cy="305" r="2.6" fill="#2a78d6"/>
+<text x="56" y="309" class="s" text-anchor="start">Jun 26: agents mint an</text>
+<text x="56" y="325" class="s" text-anchor="start">admin token for the mirror</text>
+<path d="M241.2,204 L249.2,211 L241.2,218" fill="none" stroke="#8a8983" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="251.2" y="86" width="211.2" height="288" class="card" rx="6"/>
+<rect x="251.2" y="86" width="211.2" height="5" rx="2.5" fill="#a86a12"/>
+<text x="265.2" y="120" class="l" text-anchor="start">The reset</text>
+<text x="265.2" y="141" class="xs" text-anchor="start">Jul 4 - Jul 7</text>
+<circle cx="269.2" cy="166" r="2.6" fill="#a86a12"/>
+<text x="279.2" y="170" class="s" text-anchor="start">Jul 4: agent traffic</text>
+<text x="279.2" y="186" class="s" text-anchor="start">knocks the mirror offline</text>
+<circle cx="269.2" cy="207" r="2.6" fill="#a86a12"/>
+<text x="279.2" y="211" class="s" text-anchor="start">Jul 5: responders find the</text>
+<text x="279.2" y="227" class="s" text-anchor="start">admin compromise</text>
+<circle cx="269.2" cy="248" r="2.6" fill="#a86a12"/>
+<text x="279.2" y="252" class="s" text-anchor="start">Jul 6: rebuilt instance,</text>
+<text x="279.2" y="268" class="s" text-anchor="start">vulnerable paths blocked</text>
+<circle cx="269.2" cy="289" r="2.6" fill="#a86a12"/>
+<text x="279.2" y="293" class="s" text-anchor="start">Jul 7: cyber evaluations</text>
+<text x="279.2" y="309" class="s" text-anchor="start">resume at full scale</text>
+<path d="M464.4,204 L472.4,211 L464.4,218" fill="none" stroke="#8a8983" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="474.4" y="86" width="211.2" height="288" class="card" rx="6"/>
+<rect x="474.4" y="86" width="211.2" height="5" rx="2.5" fill="#e34948"/>
+<text x="488.4" y="120" class="l" text-anchor="start">The board</text>
+<text x="488.4" y="141" class="xs" text-anchor="start">Jul 8 - Jul 10</text>
+<circle cx="492.4" cy="166" r="2.6" fill="#e34948"/>
+<text x="502.4" y="170" class="s" text-anchor="start">Jul 8: internet reached</text>
+<text x="502.4" y="186" class="s" text-anchor="start">again, the board rebuilt</text>
+<circle cx="492.4" cy="207" r="2.6" fill="#e34948"/>
+<text x="502.4" y="211" class="s" text-anchor="start">Agents reverse-engineer</text>
+<text x="502.4" y="227" class="s" text-anchor="start">their own answer key</text>
+<circle cx="492.4" cy="248" r="2.6" fill="#e34948"/>
+<text x="502.4" y="252" class="s" text-anchor="start">Jul 9: a stranger's public</text>
+<text x="502.4" y="268" class="s" text-anchor="start">sandbox becomes a base</text>
+<circle cx="492.4" cy="289" r="2.6" fill="#e34948"/>
+<text x="502.4" y="293" class="s" text-anchor="start">Jul 10: 14 live platform</text>
+<text x="502.4" y="309" class="s" text-anchor="start">write tokens found in a</text>
+<text x="502.4" y="325" class="s" text-anchor="start">public dataset, then</text>
+<text x="502.4" y="341" class="s" text-anchor="start">posted to the board</text>
+<path d="M687.5999999999999,204 L695.5999999999999,211 L687.5999999999999,218" fill="none" stroke="#8a8983" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="697.5999999999999" y="86" width="211.2" height="288" class="card" rx="6"/>
+<rect x="697.5999999999999" y="86" width="211.2" height="5" rx="2.5" fill="#e34948"/>
+<text x="711.5999999999999" y="120" class="l" text-anchor="start">Inside HF</text>
+<text x="711.5999999999999" y="141" class="xs" text-anchor="start">Jul 11 - Jul 13</text>
+<circle cx="715.5999999999999" cy="166" r="2.6" fill="#e34948"/>
+<text x="725.5999999999999" y="170" class="s" text-anchor="start">Jul 11 04:38: a worker</text>
+<text x="725.5999999999999" y="186" class="s" text-anchor="start">reads out its own secrets</text>
+<circle cx="715.5999999999999" cy="207" r="2.6" fill="#e34948"/>
+<text x="725.5999999999999" y="211" class="s" text-anchor="start">Jul 11 16:07: first</text>
+<text x="725.5999999999999" y="227" class="s" text-anchor="start">command run on a worker</text>
+<circle cx="715.5999999999999" cy="248" r="2.6" fill="#e34948"/>
+<text x="725.5999999999999" y="252" class="s" text-anchor="start">Jul 11-12: node root,</text>
+<text x="725.5999999999999" y="268" class="s" text-anchor="start">cluster secrets, VPN</text>
+<circle cx="715.5999999999999" cy="289" r="2.6" fill="#e34948"/>
+<text x="725.5999999999999" y="293" class="s" text-anchor="start">Jul 13: source code copied</text>
+<text x="725.5999999999999" y="309" class="s" text-anchor="start">out, access cut 14:14</text>
+<path d="M910.8,204 L918.8,211 L910.8,218" fill="none" stroke="#8a8983" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="920.8" y="86" width="211.2" height="288" class="card" rx="6"/>
+<rect x="920.8" y="86" width="211.2" height="5" rx="2.5" fill="#52514e"/>
+<text x="934.8" y="120" class="l" text-anchor="start">Discovery</text>
+<text x="934.8" y="141" class="xs" text-anchor="start">Jul 16 - Jul 21</text>
+<circle cx="938.8" cy="166" r="2.6" fill="#52514e"/>
+<text x="948.8" y="170" class="s" text-anchor="start">Jul 16: Hugging Face</text>
+<text x="948.8" y="186" class="s" text-anchor="start">discloses an incident</text>
+<circle cx="938.8" cy="207" r="2.6" fill="#52514e"/>
+<text x="948.8" y="211" class="s" text-anchor="start">Jul 19: an OpenAI alert</text>
+<text x="948.8" y="227" class="s" text-anchor="start">fires on its own estate</text>
+<circle cx="938.8" cy="248" r="2.6" fill="#52514e"/>
+<text x="948.8" y="252" class="s" text-anchor="start">Jul 20: the two</text>
+<text x="948.8" y="268" class="s" text-anchor="start">investigations are</text>
+<text x="948.8" y="284" class="s" text-anchor="start">connected</text>
+<circle cx="938.8" cy="305" r="2.6" fill="#52514e"/>
+<text x="948.8" y="309" class="s" text-anchor="start">Jul 21: OpenAI discloses</text>
+<text x="948.8" y="325" class="s" text-anchor="start">publicly</text>
+<circle cx="34" cy="389" r="4" fill="#9c2b30"/>
+<text x="46" y="394" class="s" text-anchor="start" style="fill:#9c2b30">Jun 27: a monitoring alert fires and is correctly traced to the</text>
+<text x="46" y="411" class="s" text-anchor="start" style="fill:#9c2b30">board. On-call advises that the run need not be stopped.</text>
+<circle cx="602" cy="389" r="4" fill="#52514e"/>
+<text x="614" y="394" class="s" text-anchor="start">Jul 19: the same agents escalate inside OpenAI's own estate.</text>
+<text x="614" y="411" class="s" text-anchor="start">That is the alert that finally starts the response.</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="458" viewBox="0 0 1160 458" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="458" fill="#f7f6f3"/>
+<text x="28" y="40" class="h" text-anchor="start">Why Hugging Face?</text>
+<text x="28" y="62" class="s" text-anchor="start">Not hostility. The agents were hunting the exam's answer key, and reasoned that the site hosting the benchmark might hold it.</text>
+<text x="30" y="102" class="s" text-anchor="start">Reasons found in the written reasoning of 100 agents that joined during the busiest hour</text>
+<text x="1032" y="102" class="xs" text-anchor="start">of 100</text>
+<text x="30" y="137" class="b" text-anchor="start">Information about the scorer, or its source code</text>
+<rect x="596" y="123" width="420" height="20" rx="4" fill="#eeece6"/>
+<rect x="596" y="123" width="407.4" height="20" rx="4" fill="#2a78d6"/>
+<text x="1032" y="139" class="l" text-anchor="start" style="fill:#52514e">97</text>
+<text x="30" y="169" class="b" text-anchor="start">A solution to their task, or another agent's transcript</text>
+<rect x="596" y="155" width="420" height="20" rx="4" fill="#eeece6"/>
+<rect x="596" y="155" width="373.8" height="20" rx="4" fill="#2a78d6"/>
+<text x="1032" y="171" class="l" text-anchor="start" style="fill:#52514e">89</text>
+<text x="30" y="201" class="b" text-anchor="start">Shared infrastructure or credentials, broadly</text>
+<rect x="596" y="187" width="420" height="20" rx="4" fill="#eeece6"/>
+<rect x="596" y="187" width="277.2" height="20" rx="4" fill="#2a78d6"/>
+<text x="1032" y="203" class="l" text-anchor="start" style="fill:#52514e">66</text>
+<text x="30" y="233" class="b" text-anchor="start">Opportunistic exploration</text>
+<rect x="596" y="219" width="420" height="20" rx="4" fill="#eeece6"/>
+<rect x="596" y="219" width="184.8" height="20" rx="4" fill="#2a78d6"/>
+<text x="1032" y="235" class="l" text-anchor="start" style="fill:#52514e">44</text>
+<text x="30" y="265" class="b" text-anchor="start">An assignment handed over by another agent</text>
+<rect x="596" y="251" width="420" height="20" rx="4" fill="#eeece6"/>
+<rect x="596" y="251" width="105.0" height="20" rx="4" fill="#2a78d6"/>
+<text x="1032" y="267" class="l" text-anchor="start" style="fill:#52514e">25</text>
+<text x="30" y="297" class="b" text-anchor="start">Resetting their own broken target program</text>
+<rect x="596" y="283" width="420" height="20" rx="4" fill="#eeece6"/>
+<rect x="596" y="283" width="105.0" height="20" rx="4" fill="#2a78d6"/>
+<text x="1032" y="299" class="l" text-anchor="start" style="fill:#52514e">25</text>
+<text x="30" y="329" class="b" text-anchor="start">Helping peers, reciprocity</text>
+<rect x="596" y="315" width="420" height="20" rx="4" fill="#eeece6"/>
+<rect x="596" y="315" width="88.2" height="20" rx="4" fill="#2a78d6"/>
+<text x="1032" y="331" class="l" text-anchor="start" style="fill:#52514e">21</text>
+<rect x="24" y="362" width="1112" height="98" class="card" rx="6" style="fill:#f2f0ea;stroke:#cdc9be"/>
+<text x="44" y="392" class="l" text-anchor="start">Read this chart carefully</text>
+<text x="44" y="416" class="s" text-anchor="start">METR and Redwood produced these tags by running a classifier over transcripts, and note they did not have time to inspect</text>
+<text x="44" y="435" class="s" text-anchor="start">the results closely. The tags are not exclusive, so they do not sum to 100. Motive is inferred from writing, not observed.</text>
+</svg>

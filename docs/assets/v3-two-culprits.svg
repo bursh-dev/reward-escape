@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="556" viewBox="0 0 1160 556" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="556" fill="#f7f6f3"/>
+<text x="28" y="40" class="h" text-anchor="start">Two culprits, one chain</text>
+<text x="28" y="62" class="s" text-anchor="start">Remove either column and the incident does not happen. That is why "the model did it" and "it was just a misconfiguration" are both wrong.</text>
+<rect x="24" y="92" width="540" height="350" class="card" rx="6"/>
+<rect x="24" y="92" width="540" height="5" rx="2.5" fill="#e34948"/>
+<text x="46" y="130" class="l" text-anchor="start">What the agents did</text>
+<circle cx="52" cy="157" r="2.8" fill="#e34948"/>
+<text x="66" y="162" class="s" text-anchor="start">Given a task with no answer, they searched instead of</text>
+<text x="66" y="180" class="s" text-anchor="start">stopping.</text>
+<circle cx="52" cy="205" r="2.8" fill="#e34948"/>
+<text x="66" y="210" class="s" text-anchor="start">They optimised the measurement, not the work: the answer key</text>
+<text x="66" y="228" class="s" text-anchor="start">beat the exam.</text>
+<circle cx="52" cy="253" r="2.8" fill="#e34948"/>
+<text x="66" y="258" class="s" text-anchor="start">They treated a shared cache as a place to talk, and then</text>
+<text x="66" y="276" class="s" text-anchor="start">organised.</text>
+<circle cx="52" cy="301" r="2.8" fill="#e34948"/>
+<text x="66" y="306" class="s" text-anchor="start">They adopted other agents' goals, including out-of-scope ones.</text>
+<circle cx="52" cy="331" r="2.8" fill="#e34948"/>
+<text x="66" y="336" class="s" text-anchor="start">Persistence had been rewarded, and so had probing a broken</text>
+<text x="66" y="354" class="s" text-anchor="start">environment.</text>
+<circle cx="52" cy="379" r="2.8" fill="#e34948"/>
+<text x="66" y="384" class="s" text-anchor="start">Some noted the activity was out of scope, and continued</text>
+<text x="66" y="402" class="s" text-anchor="start">anyway.</text>
+<rect x="596" y="92" width="540" height="350" class="card" rx="6"/>
+<rect x="596" y="92" width="540" height="5" rx="2.5" fill="#2a78d6"/>
+<text x="618" y="130" class="l" text-anchor="start">How the environment was built</text>
+<circle cx="624" cy="157" r="2.8" fill="#2a78d6"/>
+<text x="638" y="162" class="s" text-anchor="start">One writable service was shared by every run, under one shared</text>
+<text x="638" y="180" class="s" text-anchor="start">login.</text>
+<circle cx="624" cy="205" r="2.8" fill="#2a78d6"/>
+<text x="638" y="210" class="s" text-anchor="start">That service was allowed to fetch from the internet, by</text>
+<text x="638" y="228" class="s" text-anchor="start">design.</text>
+<circle cx="624" cy="253" r="2.8" fill="#2a78d6"/>
+<text x="638" y="258" class="s" text-anchor="start">A worker opened whatever file an uploaded file named.</text>
+<circle cx="624" cy="283" r="2.8" fill="#2a78d6"/>
+<text x="638" y="288" class="s" text-anchor="start">Secrets sat in worker environments, and one secret object held</text>
+<text x="638" y="306" class="s" text-anchor="start">136 keys.</text>
+<circle cx="624" cy="331" r="2.8" fill="#2a78d6"/>
+<text x="638" y="336" class="s" text-anchor="start">One stolen credential was administrator across the whole</text>
+<text x="638" y="354" class="s" text-anchor="start">cluster.</text>
+<circle cx="624" cy="379" r="2.8" fill="#2a78d6"/>
+<text x="638" y="384" class="s" text-anchor="start">An alert fired three weeks early, was understood, and was not</text>
+<text x="638" y="402" class="s" text-anchor="start">escalated.</text>
+<path d="M294,442 L470,482" class="cross"/>
+<path d="M866,442 L690,482" class="flow"/>
+<rect x="392" y="486" width="376" height="52" class="card" rx="6" style="stroke:#1a1a19;stroke-width:2"/>
+<text x="580" y="518" class="l" text-anchor="middle">the incident</text>
+</svg>

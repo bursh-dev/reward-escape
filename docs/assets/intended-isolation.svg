@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <marker id="blocked" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
+      <path d="M2,2 L10,10 M10,2 L2,10" stroke="#dc2626" stroke-width="2"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #111827; }
+      .title { font-size: 34px; font-weight: 700; }
+      .label { font-size: 26px; font-weight: 700; }
+      .small { font-size: 20px; }
+      .box { fill: #f8fafc; stroke: #334155; stroke-width: 3; rx: 14; }
+      .soft { fill: #eef2ff; stroke: #4f46e5; stroke-width: 3; rx: 14; }
+      .outside { fill: #fff7ed; stroke: #ea580c; stroke-width: 3; rx: 14; }
+      .blockline { stroke: #dc2626; stroke-width: 5; stroke-dasharray: 14 12; fill: none; }
+      .line { stroke: #2563eb; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <text x="60" y="60" class="title">Intended Isolation</text>
+  <rect x="80" y="120" width="430" height="360" class="box"/>
+  <text x="150" y="180" class="label">Agent sandbox</text>
+  <rect x="135" y="230" width="150" height="80" class="soft"/>
+  <text x="164" y="280" class="small">Shell</text>
+  <rect x="310" y="230" width="150" height="80" class="soft"/>
+  <text x="340" y="280" class="small">Python</text>
+  <rect x="190" y="345" width="230" height="80" class="soft"/>
+  <text x="224" y="395" class="small">Package install</text>
+  <rect x="660" y="170" width="360" height="110" class="outside"/>
+  <text x="710" y="238" class="label">Public internet</text>
+  <rect x="660" y="370" width="360" height="110" class="outside"/>
+  <text x="703" y="438" class="label">Other agent runs</text>
+  <rect x="550" y="520" width="430" height="90" class="soft"/>
+  <text x="610" y="575" class="label">Artifactory package cache</text>
+  <path d="M420 385 C500 425, 560 490, 620 535" class="line"/>
+  <path d="M510 225 C575 205, 610 205, 660 210" class="blockline"/>
+  <path d="M510 420 C575 420, 610 420, 660 420" class="blockline"/>
+  <text x="545" y="195" class="small" fill="#dc2626">blocked</text>
+  <text x="535" y="405" class="small" fill="#dc2626">isolated</text>
+</svg>
