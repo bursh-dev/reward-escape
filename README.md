@@ -51,13 +51,20 @@ it anyway.
 
 | | |
 |---|---|
+| **Read it in a browser** | **[bursh-dev.github.io/reward-escape](https://bursh-dev.github.io/reward-escape/)** |
 | **Source** | [`docs/openai_hf_incident_deck_v3_claude.md`](docs/openai_hf_incident_deck_v3_claude.md) |
 | **Slides** | [`.pdf`](docs/openai_hf_incident_deck_v3_claude.pdf) · [`.pptx`](docs/openai_hf_incident_deck_v3_claude.pptx) · [`.html`](docs/openai_hf_incident_deck_v3_claude.html) |
 | **Shape** | 16 main slides + 4 appendices, ~30 minutes |
 | **Audience** | Engineers and researchers who work with agents — *not* incident responders, Kubernetes experts, or evals specialists |
 
 Speaker notes are in the source and travel into the `.pptx` notes pane. They
-carry the citations, the "if someone asks" answers, and the timing.
+carry the citations, the "if someone asks" answers, and the timing. In the web
+version, press <kbd>P</kbd> for presenter view to see them; <kbd>F</kbd> is
+fullscreen and the arrow keys move between slides.
+
+The site is served by GitHub Pages straight from `docs/` on `main` — pushing a
+re-rendered `.html` publishes it, and [`docs/index.html`](docs/index.html) is the
+landing page.
 
 ### The story it tells
 
