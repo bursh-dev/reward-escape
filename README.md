@@ -1,7 +1,8 @@
 # The Case of the Impossible Exam
 
-**A 30-minute walkthrough of the July 2026 OpenAI / Hugging Face autonomous-agent
-security incident — told as a case file, not a horror story.**
+**A walkthrough of the July 2026 OpenAI / Hugging Face autonomous-agent
+security incident — told as a case file, not a horror story. In two lengths: a
+15-minute cut and a full 30-minute version.**
 
 ---
 
@@ -47,26 +48,59 @@ it anyway.
 
 ---
 
-## The deck
+## The decks
 
-| | |
-|---|---|
-| **Read it in a browser** | **[bursh-dev.github.io/reward-escape](https://bursh-dev.github.io/reward-escape/)** |
-| **Source** | [`docs/openai_hf_incident_deck_v3_claude.md`](docs/openai_hf_incident_deck_v3_claude.md) |
-| **Slides** | [`.pdf`](docs/openai_hf_incident_deck_v3_claude.pdf) · [`.pptx`](docs/openai_hf_incident_deck_v3_claude.pptx) · [`.html`](docs/openai_hf_incident_deck_v3_claude.html) |
-| **Shape** | 17 main slides + 8 appendices, ~30 minutes |
-| **Audience** | Engineers and researchers who work with agents — *not* incident responders, Kubernetes experts, or evals specialists |
+Both are rendered from the same figures and the same claim discipline. Pick by slot
+length, not by audience — the audience is the same.
 
-Speaker notes are in the source and travel into the `.pptx` notes pane. They
+| | 15-minute cut | Full version |
+|---|---|---|
+| **Read it in a browser** | [15min](https://bursh-dev.github.io/reward-escape/openai_hf_incident_deck_15min.html) | [v3](https://bursh-dev.github.io/reward-escape/openai_hf_incident_deck_v3_claude.html) |
+| **Source** | [`docs/openai_hf_incident_deck_15min.md`](docs/openai_hf_incident_deck_15min.md) | [`docs/openai_hf_incident_deck_v3_claude.md`](docs/openai_hf_incident_deck_v3_claude.md) |
+| **Slides** | [`.pdf`](docs/openai_hf_incident_deck_15min.pdf) · [`.pptx`](docs/openai_hf_incident_deck_15min.pptx) · [`.html`](docs/openai_hf_incident_deck_15min.html) | [`.pdf`](docs/openai_hf_incident_deck_v3_claude.pdf) · [`.pptx`](docs/openai_hf_incident_deck_v3_claude.pptx) · [`.html`](docs/openai_hf_incident_deck_v3_claude.html) |
+| **Shape** | 10 slides, no appendices, ~15 min — leaves 5 for discussion | 17 slides + 8 appendices, ~30 min |
+
+**Landing page for both:** [bursh-dev.github.io/reward-escape](https://bursh-dev.github.io/reward-escape/)
+
+**Audience** for either: engineers and researchers who work with agents — *not*
+incident responders, Kubernetes experts, or evals specialists.
+
+### What the 15-minute cut gives up
+
+Seven slides, folded into the speaker notes of the ones that remain rather than deleted:
+the chronology, the message-board-becomes-an-organisation slide, the motive breakdown
+chart, the rung-by-rung ladder inside Hugging Face, and the two-culprits diagram. The
+verdict and impact slides are merged into one; the lessons drop from six to five; and the
+separate closing slide is gone — its question is now the take line on the takeaways
+slide, so the deck ends on one "so what" rather than two. Every appendix is gone.
+
+Two slides are not cut but rewritten for an audience that builds eval harnesses. The
+cast slide becomes the harness as a spec sheet — 898 tasks, 198 unsolvable, one shared
+mirror, zero humans in the loop — then the three properties of that harness the room can
+check in their own; the full deck's definitions of agent / flag / scorer are gone. And the
+three map scenes are redrawn stripped (`s15-map-*.svg`), on the view that in a short slot
+a diagram has to be readable in about fifteen seconds.
+
+What survives is the spine: harness spec → locked room → impossible exam → shared wall → **the twist** →
+relay out → unlocked window → the full accounting → what we take from this. The twist is
+still the slide to spend time on, and the deck now ends on the takeaways rather than a
+separate closing slide.
+
+Speaker notes are in the source of both and travel into the `.pptx` notes pane. They
 carry the citations, the "if someone asks" answers, and the timing. In the web
 version, press <kbd>P</kbd> for presenter view to see them; <kbd>F</kbd> is
-fullscreen and the arrow keys move between slides.
+fullscreen and the arrow keys move between slides. The short cut's notes are denser
+on purpose — they absorb the six slides it drops.
 
 The site is served by GitHub Pages straight from `docs/` on `main` — pushing a
 re-rendered `.html` publishes it, and [`docs/index.html`](docs/index.html) is the
 landing page.
 
-### The story it tells
+### The story it tells (full version)
+
+The 15-minute cut keeps scenes 1–4, 6, 7, 9 and 14, merges 11 and 12, folds the
+rest into speaker notes, and replaces the cast slide with a generated harness spec
+(`v3-harness.svg`).
 
 | | Scene | What changes |
 |---|---|---|
@@ -112,7 +146,7 @@ and what nobody can tell you. Nothing was invented to fill a gap.
 
 ## Figures
 
-All eleven diagrams are generated, not drawn:
+All fifteen diagrams are generated, not drawn:
 
 ```bash
 python docs/assets/generate_assets.py     # rewrites every v3-*.svg
@@ -125,12 +159,27 @@ four scenes: locked room → shared wall → relay and launchpad → inside the 
 Same coordinates every time, so what changed between scenes is the only thing
 that moves.
 
+Four figures belong to the 15-minute cut alone. `v3-harness.svg` replaces that deck's
+terminology slide with the harness as a spec sheet — four numbers, then the three
+properties of the setup that made the rest possible — on the assumption that the
+audience builds eval harnesses and does not need "scorer" defined. The `s15-map-*.svg`
+trio is a stripped redraw of the accumulating map: same three scenes, same geometry,
+but three runs instead of six labels each, a two-row key instead of text hung off every
+arrow, and larger type. The full deck keeps the detailed `v3-map-*.svg` set, which also
+has a fourth scene the short cut does not use.
+
+Both map sets are generated from their own base function (`map_base` and `map_simple`),
+so editing one does not disturb the other.
+
 One trap, documented in the script: in the SVG cascade a class rule beats a
 presentation attribute, so colour overrides are emitted as inline `style="…"`.
 
 ---
 
 ## Rendering
+
+Swap `openai_hf_incident_deck_v3_claude` for `openai_hf_incident_deck_15min` to
+render the short cut; everything else is identical.
 
 ```bash
 npx @marp-team/marp-cli docs/openai_hf_incident_deck_v3_claude.md --html --allow-local-files -o docs/openai_hf_incident_deck_v3_claude.html
@@ -141,16 +190,26 @@ npx @marp-team/marp-cli docs/openai_hf_incident_deck_v3_claude.md --pptx --allow
 Run each one on its own. Chaining a Marp render after a shell heredoc in the same
 invocation hangs indefinitely — it isn't Marp's fault, and it isn't Skynet either.
 
+The two decks share one `<style>` block, copied rather than imported. If you change
+the look of one, change both — or neither, and keep the divergence deliberate.
+
+**Links only survive into `.html` and `.pdf`.** Marp rasterises each slide into a PNG
+for `.pptx`, so the source links on the 15-minute cut's title slide are clickable in
+the browser and in the PDF, and are plain text in PowerPoint. Present from the HTML or
+the PDF if you want the audience to be able to click them.
+
 ---
 
 ## Layout
 
 ```
 docs/
-  openai_hf_incident_deck_v3_claude.{md,pdf,pptx,html}   <- the deck. start here
+  openai_hf_incident_deck_v3_claude.{md,pdf,pptx,html}   <- the full deck. start here
+  openai_hf_incident_deck_15min.{md,pdf,pptx,html}       <- the 15-minute cut
+  index.html                                             <- landing page for both
   assets/
-    generate_assets.py      <- generates all eleven v3-*.svg figures
-    v3-*.svg                <- generated; do not hand-edit
+    generate_assets.py      <- generates all fifteen figures (v3-*, s15-*)
+    v3-*.svg, s15-*.svg     <- generated; do not hand-edit
   sources/                  <- local snapshots of the primary sources
   claude_presentation_handoff_prompt.md                  <- the brief this deck answers
 ```

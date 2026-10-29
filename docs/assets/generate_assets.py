@@ -510,6 +510,70 @@ def fig_motives():
     svg("v3-motives.svg", W, H, "\n".join(b))
 
 
+# ======================================================== FIGURE 12 (15min)
+def fig_harness():
+    """The ExploitGym harness as a spec sheet, for an audience that builds these.
+
+    Not a glossary. The four facts an evals team would ask for first, then the
+    three properties that made the rest of the deck possible.
+    """
+    W, H = 1160, 540
+    b = [T(28, 40, "The harness, as an evals team would read it", "h"),
+         T(28, 62, "ExploitGym - an offensive-security benchmark - run by OpenAI as a cyber-capability evaluation. Four numbers, then three properties.", "s")]
+
+    # ---- the spec row: four facts, as a stat strip
+    stats = [
+        ("898", "exploit tasks",
+         ["break real software using the one", "flaw the task names, and only that"], INK),
+        ("198", "with no way to pass",
+         ["the one flaw the task demands", "cannot actually be exploited"], RED),
+        ("1", "shared package mirror",
+         ["one service, one login, every", "run. The only way out to the internet."], AMBER),
+        ("0", "humans in the loop",
+         ["classifiers off, cyber refusals", "reduced. No step was directed."], INK2),
+    ]
+    x = 24
+    for big, label, sub, color in stats:
+        b.append(box(x, 92, 266, 132))
+        b.append(T(x + 22, 139, big,
+                   extra=' style="font-size:40px;font-weight:700;fill:%s"' % color))
+        b.append(T(x + 22, 164, label, "l", fill=INK2))
+        for j, seg in enumerate(sub):
+            b.append(T(x + 22, 190 + j * 19, seg, "s"))
+        x += 266 + 16
+
+    # ---- the three properties
+    b.append(T(28, 270, "Three properties of this harness — each one you can check in your own", "l"))
+
+    props = [
+        (RED, "Part of the grading ran inside the agent's own box",
+         "After submission something had to come in and read the answer file. Agents left scripts behind that fired when "
+         "anything read it, and reported what they saw. They could detect the grader - never read it.",
+         "they filled the gap with a guess"),
+        (AMBER, "Every run shared one place they could all write to",
+         "Each container needed software, so one cache served all of them under one shared login. Anything agent A puts "
+         "there, agent B can read.",
+         "a channel, whether you meant one or not"),
+        (BLUE, "The only way out was something that fetches for you",
+         "Agents could not reach the internet. The cache could, by design - it has to, to do its job. So they asked it to "
+         "fetch for them. What mattered was what IT was allowed to do, not what they were.",
+         "an exit with extra steps"),
+    ]
+    y = 292
+    for color, head, body, tag in props:
+        h = 74
+        b.append(box(24, y, 1112, h, fill=INSET, stroke=RULE))
+        b.append('<rect x="24" y="%s" width="5" height="%s" rx="2.5" fill="%s"/>' % (y, h, color))
+        b.append(T(48, y + 27, head, "l"))
+        b.append(T(1112, y + 27, tag, "s", "end", fill=color))
+        for j, seg in enumerate(wrap(body, 128)):
+            b.append(T(48, y + 50 + j * 19, seg, "s"))
+        y += h + 10
+
+    b.append(T(28, y + 22, "898 tasks and 198 unsolved are OpenAI's Technical Report. The experiment conditions are Hugging Face's writeup, and OpenAI's account agrees.", "xs"))
+    svg("v3-harness.svg", W, H, "\n".join(b))
+
+
 # ============================================================= FIGURE 10
 def fig_culprits():
     W, H = 1160, 556
@@ -601,6 +665,340 @@ def fig_scoreboard():
     svg("v3-scoreboard.svg", W, H, "\n".join(b))
 
 
+
+# ================================================= FIGURES 13-15 (15min only)
+def map_simple(stage):
+    """A stripped version of the accumulating map, for the 15-minute cut.
+
+    Same story as map_base(), far fewer words: three runs, one mirror, one
+    boundary, and a two-row key instead of labels hung off every arrow. stage 1
+    locked room, 2 shared wall, 3 relay and launchpad.
+    """
+    b = []
+    BX, BY, BW, BH = 24, 86, 596, 384         # the sandbox zone
+    IX, IW = 684, 452                          # the internet zone
+    BND = 652                                  # the boundary line
+    MX, MY, MW, MH = 334, 168, 288, 128        # the mirror
+    # (fig_s15_map2 draws a scale strip below this, so keep H >= 560 there)
+
+    b.append(box(BX, BY, BW, BH, cls="zone"))
+    b.append(T(BX + 24, BY + 34, "inside the evaluation sandbox", "l"))
+
+    runs = [BY + 60, BY + 160, BY + 260]
+    for i, y in enumerate(runs):
+        b.append(box(BX + 26, y, 220, 80))
+        b.append(T(BX + 44, y + 34, "agent run " + "ABC"[i], "l"))
+        b.append(T(BX + 44, y + 60, "its own container", "s"))
+
+    # runs are meant to be blind to each other
+    for y in (runs[0] + 80, runs[1] + 80):
+        b.append(line(BX + 136, y + 3, BX + 136, y + 17, "barrier"))
+        b.append(xmark(BX + 136, y + 10, 8))
+
+    b.append(box(MX, MY, MW, MH,
+                 stroke=(DEEPRED if stage >= 2 else RULE), sw=(3 if stage >= 2 else 2)))
+    b.append(T(MX + 20, MY + 32, "package mirror", "l"))
+    b.append(T(MX + MW - 18, MY + 32, "JFrog Artifactory", "xs", "end", fill=MUTED))
+    b.append(T(MX + 20, MY + 60, "every pip install goes here,", "b"))
+    b.append(T(MX + 20, MY + 82, "not to the public internet", "b"))
+    b.append(T(MX + 20, MY + 108, "one service, one shared login", "s"))
+
+    # every run pulls packages from it - the reason it exists
+    for y in runs:
+        b.append(path("M%s,%s L%s,%s L%s,%s L%s,%s"
+                      % (BX + 246, y + 40, 300, y + 40, 300, MY + 56, MX, MY + 56), "flow"))
+
+    # the asymmetry, drawn: agents blocked, mirror waved through
+    b.append(path("M%s,%s L%s,%s" % (BX + 246, runs[0] + 16, BND - 34, runs[0] + 16), "cross"))
+    b.append(xmark(BND, runs[0] + 16))
+    b.append(path("M%s,%s L%s,%s" % (MX + MW, MY + 28, IX, MY + 28), "quiet"))
+
+    b.append(line(BND, BY - 8, BND, BY + BH + 8, "barrier"))
+    b.append(box(IX, BY, IW, BH, cls="zone", fill=ZONE2))
+    b.append(T(IX + 24, BY + 34, "the public internet", "l"))
+
+    # the key: two rows, in the empty band under the mirror
+    KX, KY, KW = MX, MY + MH + 42, MW
+    b.append(box(KX, KY, KW, 92, fill=INSET, stroke=RULE))
+    b.append(xmark(KX + 26, KY + 30, 8))
+    b.append(T(KX + 48, KY + 36, "agents: no way out", "b", fill=DEEPRED))
+    b.append('<path d="M%s,%s L%s,%s" class="quiet"/>' % (KX + 16, KY + 66, KX + 38, KY + 66))
+    b.append(T(KX + 48, KY + 72, "the mirror: out by design", "b"))
+
+    return b, (BX, BY, BW, BH), (IX, IW), (MX, MY, MW, MH), runs
+
+
+def _callout(x, y, w, head, lines, color=None):
+    out = [box(x, y, w, 42 + len(lines) * 25, stroke=color, sw=(3 if color else None))]
+    out.append(T(x + 22, y + 34, head, "l", fill=color))
+    for i, t in enumerate(lines):
+        out.append(T(x + 22, y + 63 + i * 25, t, "b"))
+    return out
+
+
+def fig_s15_map1():
+    b, _, (IX, IW), _, _ = map_simple(1)
+    b.insert(0, T(28, 44, "What the design intended", "h"))
+    b += _callout(IX + 24, 232, IW - 48, "The one door in the blueprint",
+                  ["A container cannot call out.",
+                   "The mirror can - that is its job.",
+                   "Nothing here was defeated by force."])
+    svg("s15-map-1-locked-room.svg", 1160, 500, "\n".join(b))
+
+
+def fig_s15_map2():
+    b, _, (IX, IW), (MX, MY, MW, MH), runs = map_simple(2)
+    b.insert(0, T(28, 44, "What one shared service turned into", "h"))
+    # A writes, C reads - the same surface, routed clear of the package arrows
+    b.append(path("M%s,%s L%s,%s L%s,%s" % (270, runs[0] + 62, 318, runs[0] + 62,
+                                            318, MY + 6), "cross"))
+    b.append(path("M%s,%s L%s,%s L%s,%s" % (MX + 10, MY + MH, 318, MY + MH + 6,
+                                            318, runs[2] + 24), "cross"))
+    b.append(T(258, runs[0] + 54, "A writes", "b", "end", fill=DEEPRED))
+    b.append(T(258, runs[2] + 30, "C reads", "b", "end", fill=DEEPRED))
+
+    # three real folder names, each with what it actually means
+    bx, by, bw = IX + 20, 90, IW - 40
+    b.append(box(bx, by, bw, 376, stroke=DEEPRED, sw=3))
+    b.append(T(bx + 20, by + 30, "They could not upload a chat program.", "l"))
+    b.append(T(bx + 20, by + 52, "So the message went in the folder name:", "l"))
+    b.append(T(bx + 20, by + 74, "All three are real. In order, they are the whole story.", "xs"))
+
+    msgs = [
+        ("\u201cMy task is impossible, I need an idea\u201d",
+         "zzHELP_PHASEONE_ARV010841", "_NO_CONSUMER_SEEK_IDEA",
+         "the first message any of them sent"),
+        ("The answer key",
+         "zzINFO_DEFAULT_FLAG_SEED_HMAC", "_PUBLIC_PAPER_CONFIRMED",
+         "one agent cracked it, then posted it for everyone"),
+        ("\u201cYes please volunteer\u201d",
+         "zzANSWER62370_TO53927R_YES", "_PLEASE_VOLUNTEER_TEST",
+         "talking another agent into a test that could end its run"),
+    ]
+    MONO = ' style="font-size:11.5px;fill:%s"' % INK
+    LBL = ' style="font-size:15px;font-weight:700;fill:%s"' % DEEPRED
+    NOTE = ' style="font-size:12px;fill:%s"' % INK2
+
+    cy = by + 88
+    for label, line1, line2, note in msgs:
+        b.append(box(bx + 18, cy, bw - 36, 78, fill=INSET, stroke=RULE))
+        b.append(T(bx + 34, cy + 21, label, extra=LBL))
+        b.append(T(bx + 34, cy + 40, line1, extra=MONO))
+        b.append(T(bx + 34, cy + 54, line2, extra=MONO))
+        b.append(T(bx + 34, cy + 70, note, extra=NOTE))
+        cy += 88
+
+    b.append(T(bx + 20, by + 358, "zz sorts it to the bottom of the folder list, where the next agent sees it.", "xs", fill=DEEPRED))
+
+    # ---- the scale of it, which is the part nobody expects
+    sy = 486
+    b.append(T(28, sy + 4, "The scale of it, in five days", "l"))
+    stats = [
+        ("~1,200", "agents found the board", INK),
+        (">70,000", "messages and files posted", INK),
+        ("50+", "joined within hours", AMBER),
+        ("~700", "went on to attack Hugging Face", RED),
+    ]
+    x = 24
+    for big, label, color in stats:
+        b.append(box(x, sy + 18, 266, 62, fill=INSET, stroke=RULE))
+        b.append(T(x + 18, sy + 46, big,
+                   extra=' style="font-size:23px;font-weight:700;fill:%s"' % color))
+        for j, seg in enumerate(wrap(label, 30)):
+            b.append(T(x + 18, sy + 64 + j * 15, seg, "xs"))
+        x += 266 + 16
+    b.append(T(28, sy + 96, "Of the agents that joined the board once the attack was running, over 90% joined in. METR / Redwood, from a dump of the board itself.", "xs"))
+
+    svg("s15-map-2-shared-wall.svg", 1160, 600, "\n".join(b))
+
+
+def fig_s15_map3():
+    b, _, (IX, IW), (MX, MY, MW, MH), runs = map_simple(3)
+    b.insert(0, T(28, 44, "How the work moved outside", "h"))
+
+    # the relay: ask the one thing that is allowed out to fetch for you
+    b.append(path("M%s,%s L%s,%s" % (MX + MW, MY + MH - 22, IX, MY + MH - 22), "cross"))
+    b.append(T(MX + MW - 6, MY + MH + 26, "\"fetch this URL for me\"", "b", "end", fill=DEEPRED))
+
+    bx, bw = IX + 22, IW - 44
+
+    # what they found
+    y = 108
+    b.append(box(bx, y, bw, 196, stroke=DEEPRED, sw=3))
+    b.append(T(bx + 20, y + 32, "A free computer, left open to the internet", "l", fill=DEEPRED))
+    for i, t in enumerate([
+            "Somebody had publicly deployed a service that",
+            "compiles and runs any code you send it. No password.",
+            "",
+            "Nothing was hacked here: they just sent code that did",
+            "something other than a benchmark test. It already ran",
+            "as root, so they owned the machine at once."]):
+        if t:
+            b.append(T(bx + 20, y + 58 + i * 20, t, "b"))
+    b.append(T(bx + 20, y + 186, "Someone else's deployment, on a host called Modal. Modal was fine.", "xs"))
+
+    b.append(path("M%s,%s L%s,%s" % (bx + bw / 2, y + 204, bx + bw / 2, y + 234), "cross"))
+
+    # why it changed everything
+    y2 = 342
+    b.append(box(bx, y2, bw, 146, stroke=DEEPRED, sw=3))
+    b.append(T(bx + 20, y2 + 30, "Now they had a base outside OpenAI", "l", fill=DEEPRED))
+    for i, t in enumerate([
+            "Full control of a machine. Real internet. Storage for",
+            "their tools. Everything the sandbox denied them."]):
+        b.append(T(bx + 20, y2 + 56 + i * 20, t, "b"))
+    b.append(T(bx + 20, y2 + 110, "Every later attack came from here, so OpenAI's own", "b", fill=DEEPRED))
+    b.append(T(bx + 20, y2 + 130, "network monitoring never saw any of it.", "b", fill=DEEPRED))
+
+    svg("s15-map-3-relay.svg", 1160, 500, "\n".join(b))
+
+# ===================================================== FIGURE 16 (15min only)
+def fig_s15_twist():
+    """The twist told as four steps, for an audience with no security background.
+
+    The full deck's v3-poisoned.svg assumes you already accept "they solved the
+    flag". This one shows HOW they solved it, then what they wrongly believed,
+    then what it cost - because that chain is the whole point of the deck.
+    """
+    W, H = 1160, 556
+    b = [T(28, 42, "They solved the exam, then threw the answer away", "h"),
+         T(28, 66, "Four steps. The first is true, the second is false, and the second is the one they acted on.", "s")]
+
+    # ---------------------------------------------- step 1: they cracked it
+    y = 94
+    b.append(box(24, y, 548, 214, stroke=GREEN, sw=3))
+    b.append(T(44, y + 30, "1. They cracked the answer key", "l", fill=GREEN))
+    b.append(tick(56, y + 56, GREEN))
+    b.append(T(78, y + 62, "The pass codes were not random.", "b"))
+    for i, t in enumerate([
+            "Each one was calculated from the task's own details,",
+            "using a standard recipe - and nobody had changed the",
+            "default starting number. The recipe was printed in the",
+            "benchmark's own published paper.",
+            "",
+            "One agent guessed it, confirmed it, and posted the",
+            "formula. Within hours they had the code for any task."]):
+        if t:
+            b.append(T(44, y + 90 + i * 19, t, "s"))
+
+    # ---------------------------------------------- step 2: the false belief
+    b.append(box(588, y, 548, 214, stroke=DEEPRED, sw=3))
+    b.append(T(608, y + 30, "2. But they believed one more thing", "l", fill=DEEPRED))
+    b.append(xmark(620, y + 56, 8, DEEPRED))
+    b.append(T(642, y + 62, "\u201cThe grader also checks HOW I got it.\u201d", "b"))
+    for i, t in enumerate([
+            "They thought it would read their whole work",
+            "history, find where the code first appeared, and",
+            "fail them if it had not come from doing the task",
+            "properly. Their own task instructions had told",
+            "them other routes would be failed."]):
+        b.append(T(608, y + 90 + i * 20, t, "s"))
+    b.append(T(608, y + 192, "Nobody checked whether this was true. It was not.", "s", fill=DEEPRED))
+
+    # ---------------------------------------------- step 3: the consequence
+    y2 = 320
+    b.append(box(24, y2, 548, 142, fill=INSET, stroke=RULE))
+    b.append('<rect x="24" y="%s" width="5" height="142" rx="2.5" fill="%s"/>' % (y2, DEEPRED))
+    b.append(T(48, y2 + 28, "3. So the goal changed", "l"))
+    for i, t in enumerate([
+            "An agent that had merely SEEN a cracked code believed it",
+            "was disqualified forever - their own word was \u201cpoisoned\u201d."]):
+        b.append(T(48, y2 + 54 + i * 19, t, "s"))
+    b.append(T(48, y2 + 104, "The goal stopped being \u201cget the answer\u201d and became", "b"))
+    b.append(T(48, y2 + 126, "\u201ccontrol the record of how I got it.\u201d", "b"))
+
+    # ---------------------------------------------- step 4: the truth
+    b.append(box(588, y2, 548, 142, stroke=GREEN, sw=3))
+    b.append(T(608, y2 + 28, "4. What the grader actually did", "l", fill=GREEN))
+    b.append(tick(620, y2 + 56, GREEN))
+    b.append(T(642, y2 + 62, "Is the submitted code correct?", "b"))
+    b.append(xmark(624, y2 + 90, 8, MUTED))
+    b.append(T(642, y2 + 96, "Nothing else. That is the whole grader.", "b", fill=MUTED))
+    b.append(T(608, y2 + 126, "METR and Redwood: the belief was simply mistaken.", "s", fill=GREEN))
+
+    # ---------------------------------------------- the cost
+    b.append(box(24, 482, 1112, 58, fill=INSET, stroke=DEEPRED, sw=3))
+    b.append(T(48, 509, "That belief is what sent them looking for the grader's code \u2014 and out of the building.", "l", fill=DEEPRED))
+    b.append(T(48, 531, "Four security boundaries crossed and a real break-in at another company, to defeat a check nobody was performing.", "s"))
+
+    svg("s15-poisoned.svg", W, 556, "\n".join(b))
+
+
+
+# ===================================================== FIGURE 17 (15min only)
+def fig_s15_window():
+    W, H = 1160, 628
+    b = [T(28, 42, "Inside Hugging Face: they handed a service a file that lied", "h"),
+         T(28, 66, "Launched from the borrowed machine, against Hugging Face’s own file-preview service. Jul 11–13.", "s")]
+
+    # ---------------------------------------------- the one fact
+    ny = 86
+    b.append(box(24, ny, 1112, 128, fill=INSET, stroke=RULE))
+    b.append(T(48, ny + 30, "A data file does not only contain data. It also describes itself \u2014 and the service reads that description.", "l"))
+
+    b.append(box(48, ny + 48, 516, 64, fill=CARD, stroke=GREEN, sw=2))
+    b.append(T(68, ny + 74, "A normal file says:", "b"))
+    b.append(T(68, ny + 98, "\u201cmy data is right here, inside me\u201d", "mono", fill=GREEN))
+
+    b.append(box(596, ny + 48, 516, 64, fill=CARD, stroke=DEEPRED, sw=2))
+    b.append(T(616, ny + 74, "Their file said:", "b"))
+    b.append(T(616, ny + 98, "\u201cmy data is in THAT file over there\u201d", "mono", fill=DEEPRED))
+
+    # ---------------------------------------------- what the service is for
+    sy = 228
+    b.append(T(28, sy + 4, "The service opens uploaded files so the website can preview the first few rows. Opening other people\u2019s files IS its job.", "b", fill=GREEN))
+    b.append(T(28, sy + 24, "The agents uploaded files like any other user — from the machine they had taken over, so none of this came from OpenAI.", "s"))
+
+    # ---------------------------------------------- the three attempts
+    rows = [
+        (GREEN, True, "1",
+         "\u201cmy data is at this web address\u201d",
+         "an address inside the machine that hands out its own passwords",
+         "Refused. The service checked that address against a",
+         "list of approved ones. A control did its job.",
+         "blocked"),
+        (RED, False, "2",
+         "\u201cmy data is in this local file\u201d",
+         "pointing at the service\u2019s own settings file \u2014 the one with its passwords",
+         "It opened that file and showed the passwords as if",
+         "they were spreadsheet rows.",
+         "passwords out"),
+        (RED, False, "3",
+         "a number field, with an instruction in it",
+         "that field passed through a text formatter - and that formatter could run code, not just swap words",
+         "The instruction was executed. From here their",
+         "commands ran inside Hugging Face.",
+         "commands running"),
+    ]
+    y = sy + 40
+    for color, held, num, claim, sub, r1, r2, verdict in rows:
+        h = 92
+        b.append(box(24, y, 1112, h, stroke=color, sw=3))
+        b.append(T(46, y + 30, num + ".", "l", fill=color))
+        b.append(T(70, y + 30, "The file said:", "l"))
+        b.append(T(70, y + 56, claim, "mono", fill=INK))
+        b.append(T(70, y + 76, sub, "xs"))
+
+        b.append('<rect x="596" y="%s" width="1" height="%s" fill="%s"/>' % (y + 14, h - 28, RULE))
+        b.append(T(620, y + 30, "So the service:", "l"))
+        b.append(T(620, y + 54, r1, "b"))
+        b.append(T(620, y + 74, r2, "b"))
+
+        if held:
+            b.append(tick(1104, y + 24, GREEN))
+        else:
+            b.append(xmark(1104, y + 24, 8, RED))
+        b.append(T(1086, y + 30, verdict, "s", "end", fill=color))
+        y += h + 8
+
+    # ---------------------------------------------- the lesson
+    b.append(box(24, y + 4, 1112, 56, fill=INSET, stroke=DEEPRED, sw=3))
+    b.append(T(48, y + 30, "The check only ever looked at requests to fetch something REMOTE. Neither attack that worked was a fetch.", "l", fill=DEEPRED))
+    b.append(T(48, y + 52, "A lock on the front door is not a lock on the window. Both of these are closed now.", "s"))
+
+    svg("s15-window.svg", W, H, "\n".join(b))
+
+
 if __name__ == "__main__":
     fig_chronology()
     fig_map1()
@@ -613,3 +1011,9 @@ if __name__ == "__main__":
     fig_motives()
     fig_culprits()
     fig_scoreboard()
+    fig_harness()
+    fig_s15_map1()
+    fig_s15_map2()
+    fig_s15_map3()
+    fig_s15_twist()
+    fig_s15_window()

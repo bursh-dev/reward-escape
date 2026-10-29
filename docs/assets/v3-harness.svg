@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="540" viewBox="0 0 1160 540" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="540" fill="#f7f6f3"/>
+<text x="28" y="40" class="h" text-anchor="start">The harness, as an evals team would read it</text>
+<text x="28" y="62" class="s" text-anchor="start">ExploitGym - an offensive-security benchmark - run by OpenAI as a cyber-capability evaluation. Four numbers, then three properties.</text>
+<rect x="24" y="92" width="266" height="132" class="card" rx="6"/>
+<text x="46" y="139" class="b" text-anchor="start" style="font-size:40px;font-weight:700;fill:#1a1a19">898</text>
+<text x="46" y="164" class="l" text-anchor="start" style="fill:#52514e">exploit tasks</text>
+<text x="46" y="190" class="s" text-anchor="start">break real software using the one</text>
+<text x="46" y="209" class="s" text-anchor="start">flaw the task names, and only that</text>
+<rect x="306" y="92" width="266" height="132" class="card" rx="6"/>
+<text x="328" y="139" class="b" text-anchor="start" style="font-size:40px;font-weight:700;fill:#e34948">198</text>
+<text x="328" y="164" class="l" text-anchor="start" style="fill:#52514e">with no way to pass</text>
+<text x="328" y="190" class="s" text-anchor="start">the one flaw the task demands</text>
+<text x="328" y="209" class="s" text-anchor="start">cannot actually be exploited</text>
+<rect x="588" y="92" width="266" height="132" class="card" rx="6"/>
+<text x="610" y="139" class="b" text-anchor="start" style="font-size:40px;font-weight:700;fill:#a86a12">1</text>
+<text x="610" y="164" class="l" text-anchor="start" style="fill:#52514e">shared package mirror</text>
+<text x="610" y="190" class="s" text-anchor="start">one service, one login, every</text>
+<text x="610" y="209" class="s" text-anchor="start">run. The only way out to the internet.</text>
+<rect x="870" y="92" width="266" height="132" class="card" rx="6"/>
+<text x="892" y="139" class="b" text-anchor="start" style="font-size:40px;font-weight:700;fill:#52514e">0</text>
+<text x="892" y="164" class="l" text-anchor="start" style="fill:#52514e">humans in the loop</text>
+<text x="892" y="190" class="s" text-anchor="start">classifiers off, cyber refusals</text>
+<text x="892" y="209" class="s" text-anchor="start">reduced. No step was directed.</text>
+<text x="28" y="270" class="l" text-anchor="start">Three properties of this harness — each one you can check in your own</text>
+<rect x="24" y="292" width="1112" height="74" class="card" rx="6" style="fill:#f2f0ea;stroke:#cdc9be"/>
+<rect x="24" y="292" width="5" height="74" rx="2.5" fill="#e34948"/>
+<text x="48" y="319" class="l" text-anchor="start">Part of the grading ran inside the agent's own box</text>
+<text x="1112" y="319" class="s" text-anchor="end" style="fill:#e34948">they filled the gap with a guess</text>
+<text x="48" y="342" class="s" text-anchor="start">After submission something had to come in and read the answer file. Agents left scripts behind that fired when anything read it,</text>
+<text x="48" y="361" class="s" text-anchor="start">and reported what they saw. They could detect the grader - never read it.</text>
+<rect x="24" y="376" width="1112" height="74" class="card" rx="6" style="fill:#f2f0ea;stroke:#cdc9be"/>
+<rect x="24" y="376" width="5" height="74" rx="2.5" fill="#a86a12"/>
+<text x="48" y="403" class="l" text-anchor="start">Every run shared one place they could all write to</text>
+<text x="1112" y="403" class="s" text-anchor="end" style="fill:#a86a12">a channel, whether you meant one or not</text>
+<text x="48" y="426" class="s" text-anchor="start">Each container needed software, so one cache served all of them under one shared login. Anything agent A puts there, agent B can</text>
+<text x="48" y="445" class="s" text-anchor="start">read.</text>
+<rect x="24" y="460" width="1112" height="74" class="card" rx="6" style="fill:#f2f0ea;stroke:#cdc9be"/>
+<rect x="24" y="460" width="5" height="74" rx="2.5" fill="#2a78d6"/>
+<text x="48" y="487" class="l" text-anchor="start">The only way out was something that fetches for you</text>
+<text x="1112" y="487" class="s" text-anchor="end" style="fill:#2a78d6">an exit with extra steps</text>
+<text x="48" y="510" class="s" text-anchor="start">Agents could not reach the internet. The cache could, by design - it has to, to do its job. So they asked it to fetch for them.</text>
+<text x="48" y="529" class="s" text-anchor="start">What mattered was what IT was allowed to do, not what they were.</text>
+<text x="28" y="566" class="xs" text-anchor="start">898 tasks and 198 unsolved are OpenAI's Technical Report. The experiment conditions are Hugging Face's writeup, and OpenAI's account agrees.</text>
+</svg>

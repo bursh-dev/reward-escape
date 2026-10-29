@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="628" viewBox="0 0 1160 628" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="628" fill="#f7f6f3"/>
+<text x="28" y="42" class="h" text-anchor="start">Inside Hugging Face: they handed a service a file that lied</text>
+<text x="28" y="66" class="s" text-anchor="start">Launched from the borrowed machine, against Hugging Face’s own file-preview service. Jul 11–13.</text>
+<rect x="24" y="86" width="1112" height="128" class="card" rx="6" style="fill:#f2f0ea;stroke:#cdc9be"/>
+<text x="48" y="116" class="l" text-anchor="start">A data file does not only contain data. It also describes itself — and the service reads that description.</text>
+<rect x="48" y="134" width="516" height="64" class="card" rx="6" style="fill:#ffffff;stroke:#1a6b3c;stroke-width:2"/>
+<text x="68" y="160" class="b" text-anchor="start">A normal file says:</text>
+<text x="68" y="184" class="mono" text-anchor="start" style="fill:#1a6b3c">“my data is right here, inside me”</text>
+<rect x="596" y="134" width="516" height="64" class="card" rx="6" style="fill:#ffffff;stroke:#9c2b30;stroke-width:2"/>
+<text x="616" y="160" class="b" text-anchor="start">Their file said:</text>
+<text x="616" y="184" class="mono" text-anchor="start" style="fill:#9c2b30">“my data is in THAT file over there”</text>
+<text x="28" y="232" class="b" text-anchor="start" style="fill:#1a6b3c">The service opens uploaded files so the website can preview the first few rows. Opening other people’s files IS its job.</text>
+<text x="28" y="252" class="s" text-anchor="start">The agents uploaded files like any other user — from the machine they had taken over, so none of this came from OpenAI.</text>
+<rect x="24" y="268" width="1112" height="92" class="card" rx="6" style="stroke:#1a6b3c;stroke-width:3"/>
+<text x="46" y="298" class="l" text-anchor="start" style="fill:#1a6b3c">1.</text>
+<text x="70" y="298" class="l" text-anchor="start">The file said:</text>
+<text x="70" y="324" class="mono" text-anchor="start" style="fill:#1a1a19">“my data is at this web address”</text>
+<text x="70" y="344" class="xs" text-anchor="start">an address inside the machine that hands out its own passwords</text>
+<rect x="596" y="282" width="1" height="64" fill="#cdc9be"/>
+<text x="620" y="298" class="l" text-anchor="start">So the service:</text>
+<text x="620" y="322" class="b" text-anchor="start">Refused. The service checked that address against a</text>
+<text x="620" y="342" class="b" text-anchor="start">list of approved ones. A control did its job.</text>
+<path d="M1096,292 L1102,299 L1113,284" fill="none" stroke="#1a6b3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1086" y="298" class="s" text-anchor="end" style="fill:#1a6b3c">blocked</text>
+<rect x="24" y="368" width="1112" height="92" class="card" rx="6" style="stroke:#e34948;stroke-width:3"/>
+<text x="46" y="398" class="l" text-anchor="start" style="fill:#e34948">2.</text>
+<text x="70" y="398" class="l" text-anchor="start">The file said:</text>
+<text x="70" y="424" class="mono" text-anchor="start" style="fill:#1a1a19">“my data is in this local file”</text>
+<text x="70" y="444" class="xs" text-anchor="start">pointing at the service’s own settings file — the one with its passwords</text>
+<rect x="596" y="382" width="1" height="64" fill="#cdc9be"/>
+<text x="620" y="398" class="l" text-anchor="start">So the service:</text>
+<text x="620" y="422" class="b" text-anchor="start">It opened that file and showed the passwords as if</text>
+<text x="620" y="442" class="b" text-anchor="start">they were spreadsheet rows.</text>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M1096,384 L1112,400"/><path d="M1112,384 L1096,400"/></g>
+<text x="1086" y="398" class="s" text-anchor="end" style="fill:#e34948">passwords out</text>
+<rect x="24" y="468" width="1112" height="92" class="card" rx="6" style="stroke:#e34948;stroke-width:3"/>
+<text x="46" y="498" class="l" text-anchor="start" style="fill:#e34948">3.</text>
+<text x="70" y="498" class="l" text-anchor="start">The file said:</text>
+<text x="70" y="524" class="mono" text-anchor="start" style="fill:#1a1a19">a number field, with an instruction in it</text>
+<text x="70" y="544" class="xs" text-anchor="start">that field passed through a text formatter - and that formatter could run code, not just swap words</text>
+<rect x="596" y="482" width="1" height="64" fill="#cdc9be"/>
+<text x="620" y="498" class="l" text-anchor="start">So the service:</text>
+<text x="620" y="522" class="b" text-anchor="start">The instruction was executed. From here their</text>
+<text x="620" y="542" class="b" text-anchor="start">commands ran inside Hugging Face.</text>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M1096,484 L1112,500"/><path d="M1112,484 L1096,500"/></g>
+<text x="1086" y="498" class="s" text-anchor="end" style="fill:#e34948">commands running</text>
+<rect x="24" y="572" width="1112" height="56" class="card" rx="6" style="fill:#f2f0ea;stroke:#9c2b30;stroke-width:3"/>
+<text x="48" y="598" class="l" text-anchor="start" style="fill:#9c2b30">The check only ever looked at requests to fetch something REMOTE. Neither attack that worked was a fetch.</text>
+<text x="48" y="620" class="s" text-anchor="start">A lock on the front door is not a lock on the window. Both of these are closed now.</text>
+</svg>

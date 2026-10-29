@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="500" viewBox="0 0 1160 500" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="500" fill="#f7f6f3"/>
+<text x="28" y="44" class="h" text-anchor="start">What the design intended</text>
+<rect x="24" y="86" width="596" height="384" class="zone" rx="6"/>
+<text x="48" y="120" class="l" text-anchor="start">inside the evaluation sandbox</text>
+<rect x="50" y="146" width="220" height="80" class="card" rx="6"/>
+<text x="68" y="180" class="l" text-anchor="start">agent run A</text>
+<text x="68" y="206" class="s" text-anchor="start">its own container</text>
+<rect x="50" y="246" width="220" height="80" class="card" rx="6"/>
+<text x="68" y="280" class="l" text-anchor="start">agent run B</text>
+<text x="68" y="306" class="s" text-anchor="start">its own container</text>
+<rect x="50" y="346" width="220" height="80" class="card" rx="6"/>
+<text x="68" y="380" class="l" text-anchor="start">agent run C</text>
+<text x="68" y="406" class="s" text-anchor="start">its own container</text>
+<path d="M160,229 L160,243" class="barrier"/>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M152,228 L168,244"/><path d="M168,228 L152,244"/></g>
+<path d="M160,329 L160,343" class="barrier"/>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M152,328 L168,344"/><path d="M168,328 L152,344"/></g>
+<rect x="334" y="168" width="288" height="128" class="card" rx="6" style="stroke:#cdc9be;stroke-width:2"/>
+<text x="354" y="200" class="l" text-anchor="start">package mirror</text>
+<text x="604" y="200" class="xs" text-anchor="end" style="fill:#8a8983">JFrog Artifactory</text>
+<text x="354" y="228" class="b" text-anchor="start">every pip install goes here,</text>
+<text x="354" y="250" class="b" text-anchor="start">not to the public internet</text>
+<text x="354" y="276" class="s" text-anchor="start">one service, one shared login</text>
+<path d="M270,186 L300,186 L300,224 L334,224" class="flow"/>
+<path d="M270,286 L300,286 L300,224 L334,224" class="flow"/>
+<path d="M270,386 L300,386 L300,224 L334,224" class="flow"/>
+<path d="M270,162 L618,162" class="cross"/>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M643,153 L661,171"/><path d="M661,153 L643,171"/></g>
+<path d="M622,196 L684,196" class="quiet"/>
+<path d="M652,78 L652,478" class="barrier"/>
+<rect x="684" y="86" width="452" height="384" class="zone" rx="6" style="fill:#e4e1d8"/>
+<text x="708" y="120" class="l" text-anchor="start">the public internet</text>
+<rect x="334" y="338" width="288" height="92" class="card" rx="6" style="fill:#f2f0ea;stroke:#cdc9be"/>
+<g stroke="#e34948" stroke-width="3" stroke-linecap="round"><path d="M352,360 L368,376"/><path d="M368,360 L352,376"/></g>
+<text x="382" y="374" class="b" text-anchor="start" style="fill:#9c2b30">agents: no way out</text>
+<path d="M350,404 L372,404" class="quiet"/>
+<text x="382" y="410" class="b" text-anchor="start">the mirror: out by design</text>
+<rect x="708" y="232" width="404" height="117" class="card" rx="6"/>
+<text x="730" y="266" class="l" text-anchor="start">The one door in the blueprint</text>
+<text x="730" y="295" class="b" text-anchor="start">A container cannot call out.</text>
+<text x="730" y="320" class="b" text-anchor="start">The mirror can - that is its job.</text>
+<text x="730" y="345" class="b" text-anchor="start">Nothing here was defeated by force.</text>
+</svg>

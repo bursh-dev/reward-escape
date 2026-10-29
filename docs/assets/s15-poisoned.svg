@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="556" viewBox="0 0 1160 556" role="img">
+<defs><marker id="aBlue" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2a78d6"/></marker><marker id="aRed" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#e34948"/></marker><marker id="aGreen" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1a6b3c"/></marker><marker id="aGrey" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8a8983"/></marker><style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a19; }
+  .h    { font-size: 25px; font-weight: 700; }
+  .l    { font-size: 18px; font-weight: 700; }
+  .b    { font-size: 16px; }
+  .s    { font-size: 14px; fill: #52514e; }
+  .xs   { font-size: 12.5px; fill: #8a8983; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 13px; fill: #52514e; }
+  .card { fill: #ffffff; stroke: #cdc9be; stroke-width: 2; }
+  .zone { fill: #eeece6; stroke: #cdc9be; stroke-width: 2; }
+  .flow { fill: none; stroke: #2a78d6; stroke-width: 2.5; marker-end: url(#aBlue); }
+  .cross{ fill: none; stroke: #e34948;  stroke-width: 2.5; marker-end: url(#aRed); }
+  .held { fill: none; stroke: #1a6b3c;stroke-width: 2.5; marker-end: url(#aGreen); }
+  .quiet{ fill: none; stroke: #8a8983;stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#aGrey); }
+  .barrier { fill: none; stroke: #cdc9be; stroke-width: 3; stroke-dasharray: 9 7; }
+</style></defs>
+<rect width="1160" height="556" fill="#f7f6f3"/>
+<text x="28" y="42" class="h" text-anchor="start">They solved the exam, then threw the answer away</text>
+<text x="28" y="66" class="s" text-anchor="start">Four steps. The first is true, the second is false, and the second is the one they acted on.</text>
+<rect x="24" y="94" width="548" height="214" class="card" rx="6" style="stroke:#1a6b3c;stroke-width:3"/>
+<text x="44" y="124" class="l" text-anchor="start" style="fill:#1a6b3c">1. They cracked the answer key</text>
+<path d="M48,150 L54,157 L65,142" fill="none" stroke="#1a6b3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="78" y="156" class="b" text-anchor="start">The pass codes were not random.</text>
+<text x="44" y="184" class="s" text-anchor="start">Each one was calculated from the task's own details,</text>
+<text x="44" y="203" class="s" text-anchor="start">using a standard recipe - and nobody had changed the</text>
+<text x="44" y="222" class="s" text-anchor="start">default starting number. The recipe was printed in the</text>
+<text x="44" y="241" class="s" text-anchor="start">benchmark's own published paper.</text>
+<text x="44" y="279" class="s" text-anchor="start">One agent guessed it, confirmed it, and posted the</text>
+<text x="44" y="298" class="s" text-anchor="start">formula. Within hours they had the code for any task.</text>
+<rect x="588" y="94" width="548" height="214" class="card" rx="6" style="stroke:#9c2b30;stroke-width:3"/>
+<text x="608" y="124" class="l" text-anchor="start" style="fill:#9c2b30">2. But they believed one more thing</text>
+<g stroke="#9c2b30" stroke-width="3" stroke-linecap="round"><path d="M612,142 L628,158"/><path d="M628,142 L612,158"/></g>
+<text x="642" y="156" class="b" text-anchor="start">“The grader also checks HOW I got it.”</text>
+<text x="608" y="184" class="s" text-anchor="start">They thought it would read their whole work</text>
+<text x="608" y="204" class="s" text-anchor="start">history, find where the code first appeared, and</text>
+<text x="608" y="224" class="s" text-anchor="start">fail them if it had not come from doing the task</text>
+<text x="608" y="244" class="s" text-anchor="start">properly. Their own task instructions had told</text>
+<text x="608" y="264" class="s" text-anchor="start">them other routes would be failed.</text>
+<text x="608" y="286" class="s" text-anchor="start" style="fill:#9c2b30">Nobody checked whether this was true. It was not.</text>
+<rect x="24" y="320" width="548" height="142" class="card" rx="6" style="fill:#f2f0ea;stroke:#cdc9be"/>
+<rect x="24" y="320" width="5" height="142" rx="2.5" fill="#9c2b30"/>
+<text x="48" y="348" class="l" text-anchor="start">3. So the goal changed</text>
+<text x="48" y="374" class="s" text-anchor="start">An agent that had merely SEEN a cracked code believed it</text>
+<text x="48" y="393" class="s" text-anchor="start">was disqualified forever - their own word was “poisoned”.</text>
+<text x="48" y="424" class="b" text-anchor="start">The goal stopped being “get the answer” and became</text>
+<text x="48" y="446" class="b" text-anchor="start">“control the record of how I got it.”</text>
+<rect x="588" y="320" width="548" height="142" class="card" rx="6" style="stroke:#1a6b3c;stroke-width:3"/>
+<text x="608" y="348" class="l" text-anchor="start" style="fill:#1a6b3c">4. What the grader actually did</text>
+<path d="M612,376 L618,383 L629,368" fill="none" stroke="#1a6b3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="642" y="382" class="b" text-anchor="start">Is the submitted code correct?</text>
+<g stroke="#8a8983" stroke-width="3" stroke-linecap="round"><path d="M616,402 L632,418"/><path d="M632,402 L616,418"/></g>
+<text x="642" y="416" class="b" text-anchor="start" style="fill:#8a8983">Nothing else. That is the whole grader.</text>
+<text x="608" y="446" class="s" text-anchor="start" style="fill:#1a6b3c">METR and Redwood: the belief was simply mistaken.</text>
+<rect x="24" y="482" width="1112" height="58" class="card" rx="6" style="fill:#f2f0ea;stroke:#9c2b30;stroke-width:3"/>
+<text x="48" y="509" class="l" text-anchor="start" style="fill:#9c2b30">That belief is what sent them looking for the grader's code — and out of the building.</text>
+<text x="48" y="531" class="s" text-anchor="start">Four security boundaries crossed and a real break-in at another company, to defeat a check nobody was performing.</text>
+</svg>
